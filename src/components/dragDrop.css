@@ -1,0 +1,13 @@
+.pictures{
+    padding: 1rem;
+    border: 1px solid tomato;
+}
+.board{
+    margin-top: 1rem;
+   border: 3px solid rgb(66, 26, 20);
+   height: 300px;
+   width: 250px;
+}
+.unique_pic{
+    margin: 5px;
+}
