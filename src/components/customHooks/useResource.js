@@ -1,17 +1,13 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 export const useResource = (resourceUrl) => {
   const [resourceData, setResourceData] = useState(null);
   useEffect(() => {
-    axios
-      .get(resourceUrl)
-      .then((response) => {
-        setResourceData(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // (async function (resourceUrl) {
+    //   await fetch(resourceUrl)
+    //     .then((res) => console.log(res.json()))
+    //     .catch((err) => console.log(err));
+    // })();
   }, [resourceUrl]);
   return resourceData;
 };

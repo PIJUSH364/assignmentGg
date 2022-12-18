@@ -20,3 +20,23 @@ tr:first-child{
 tr:last-child{
     border-bottom: none
 }
+button{
+    cursor: pointer;
+}
+.dimensions_container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dimensions_component{
+    list-style-type: none;
+    border: 1px solid gray;
+   
+    width: max-content;
+    margin: 10px;
+    padding: 0.151rem 0.41rem;
+    cursor: pointer;
+}
+.bgWrong{
+  border-left: 5px solid rgb(82, 70, 210);
+}
