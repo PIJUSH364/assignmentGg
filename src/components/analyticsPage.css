@@ -21,6 +21,14 @@
     border-radius: 5px;
     
 }
+.datePickerContainer{
+    display: flex;
+    gap: 10px;
+}
+.datePickerComponent{
+    display: flex;
+    flex-direction: column;
+}
 .setting_button{
     border: 0.01rem solid var(--border_primary);
     color:var(--color_primary);

@@ -4,9 +4,11 @@ import { TableComponent } from './TableComponent';
 import { TableMain } from './TableMain';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleFinalItems } from '../features/tableItemSlice';
+import { InputComponent } from './InputComponent';
 
-export const AnalyticsPage = ({ resourceData }) => {
+export const AnalyticsPage = ({ resourceData, setDateObj }) => {
   const dispatch = useDispatch();
+
   const [updatedTableItemsList, setUpdatedTableItemsList] = useState([]);
 
   const [shown, setShown] = useState(false);
@@ -43,11 +45,13 @@ export const AnalyticsPage = ({ resourceData }) => {
     <div className="analytics_container">
       <h1 className="page_title">Analytics</h1>
       <div className="analytics_header">
-        <input type="date" className="analytics_header_date_picker"></input>
-        <button className="setting_button" onClick={() => setShown(!shown)}>
-          <i className="fa-solid fa-sliders" />
-          Settings
-        </button>
+        <InputComponent setDateObj={setDateObj} />
+        <div>
+          <button className="setting_button" onClick={() => setShown(!shown)}>
+            <i className="fa-solid fa-sliders" />
+            Settings
+          </button>
+        </div>
       </div>
       <div
         className="analytics_dimension"
