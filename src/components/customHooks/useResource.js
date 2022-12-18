@@ -10,7 +10,6 @@ export const useResource = (resourceUrl) => {
        })
        .then((res) => {
          setResourceData(res.data);
-         console.log(res.data);
        });
   }, [resourceUrl]);
   return resourceData;

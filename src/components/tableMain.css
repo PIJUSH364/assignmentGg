@@ -1,27 +1,46 @@
-table,th,td{
- 
-    border-collapse: collapse;
+:root{
+    --color_primary:rgb(7, 112, 232);
+    --border_primary: rgba(128, 128, 128, 0.511);
+    --bg_primary: rgba(128, 128, 128, 0.211);
+    --padding_button:0.2rem;
 }
 table{
     width: 100%;
-}
-th,td{
-padding: .5rem 0.2rem;
+    margin-top: 10px;
 }
 thead{
-   background-color: aquamarine;
+   background-color: var(--bg_primary);
+   text-align: right;
 }
+tbody{
+   text-align: right; 
+}
+table,th,td{
+    border-collapse: collapse;
+}
+
+th,td{
+    padding: 0.5rem 0.2rem;
+}
+
 tr{
-    border-bottom: 1px solid #000;
-}
-tr:first-child{
-   border-top: 2px solid #000;
+    border-bottom: 1px solid var(--border_primary);
 }
 tr:last-child{
     border-bottom: none
 }
 button{
     cursor: pointer;
+}
+.table_header_column{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.fa-filter{
+    padding-right: 1rem;
+    color: rgba(116, 109, 109, 0.612);
 }
 .dimensions_container{
     display: flex;
@@ -30,13 +49,21 @@ button{
 
 .dimensions_component{
     list-style-type: none;
-    border: 1px solid gray;
-   
-    width: max-content;
+    letter-spacing: 1px;
+    border: 0.01rem solid var(--border_primary);
+    border-radius: 5px;
     margin: 10px;
-    padding: 0.151rem 0.41rem;
+    padding:5px 10px;
     cursor: pointer;
 }
-.bgWrong{
-  border-left: 5px solid rgb(82, 70, 210);
+.border_left_Success{
+  border-left: 5px solid var(--color_primary);
+}
+.error_msg_container{
+    background-color: var(--bg_primary);
+    margin-top: 10px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    padding: 5rem;
+    text-align: center;
 }

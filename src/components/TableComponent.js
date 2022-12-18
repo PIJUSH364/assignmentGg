@@ -12,7 +12,7 @@ import {
 import './tableMain.css';
 
 export const TableComponent = ({ title, index }) => {
-  const [addRemove, setAddRemove] = useState(true);
+  const [addRemove, setAddRemove] = useState(false);
   const dispatch = useDispatch();
 
   const dragStartIndex = useSelector((state) => state.tableItem.startIndex);
@@ -77,7 +77,9 @@ export const TableComponent = ({ title, index }) => {
 
   return (
     <li
-      className={`dimensions_component ${addRemove ? '' : 'bgWrong'}`}
+      className={`dimensions_component ${
+        addRemove ? 'border_left_Success' : ''
+      }`}
       onClick={handleAddRemove}
       onDragOver={handleDragOver}
       onDrop={() => handleDragDrop()}
@@ -87,9 +89,7 @@ export const TableComponent = ({ title, index }) => {
         className="draggable"
         draggable="true"
         onDragStart={() => handleDragStart(index)}>
-        <p className="table-item">
-          {index} :: {title}
-        </p>
+        <p className="table-item">{title}</p>
       </div>
     </li>
   );
