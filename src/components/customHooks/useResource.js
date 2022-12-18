@@ -3,11 +3,15 @@ import { useEffect, useState } from 'react';
 export const useResource = (resourceUrl) => {
   const [resourceData, setResourceData] = useState(null);
   useEffect(() => {
-    // (async function (resourceUrl) {
-    //   await fetch(resourceUrl)
-    //     .then((res) => console.log(res.json()))
-    //     .catch((err) => console.log(err));
-    // })();
+     const fetchPromise = fetch(resourceUrl);
+     fetchPromise
+       .then((response) => {
+         return response.json();
+       })
+       .then((res) => {
+         setResourceData(res.data);
+         console.log(res.data);
+       });
   }, [resourceUrl]);
   return resourceData;
 };
