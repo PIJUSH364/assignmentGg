@@ -5,7 +5,9 @@ import { TableMain } from './TableMain';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleFinalItems } from '../features/tableItemSlice';
 import { InputComponent } from './InputComponent';
+import { FixedTableComponent } from './FixedTableComponent';
 
+const fixedTableItem = ['date', 'app_id'];
 export const AnalyticsPage = ({ resourceData, setDateObj }) => {
   const dispatch = useDispatch();
 
@@ -31,7 +33,7 @@ export const AnalyticsPage = ({ resourceData, setDateObj }) => {
 
   // table header items reArrange
   const handleArrangeTable = () => {
-    let temp = [];
+    let temp = ['date', 'app_id'];
     dispatch(handleFinalItems(temp));
     for (const element of indexValue) {
       temp = [...temp, originalTableItems[element]];
@@ -57,8 +59,12 @@ export const AnalyticsPage = ({ resourceData, setDateObj }) => {
         className="analytics_dimension"
         style={{ display: `${shown ? 'block' : 'none'}` }}>
         <p className="analytics_dimension_title">Dimensions and Metrics</p>
+
         {/* list of tableItems shown */}
         <ul className="dimensions_container">
+          {fixedTableItem.map((title, key) => (
+            <FixedTableComponent title={title} key={key} />
+          ))}
           {originalTableItems.map((title, index) => (
             <TableComponent title={title} index={index} key={index} />
           ))}
@@ -72,6 +78,7 @@ export const AnalyticsPage = ({ resourceData, setDateObj }) => {
           </button>
         </div>
       </div>
+
       <div>
         {/* table cell data */}
         <TableMain tableCellData={resourceData} finalItems={finalItems} />
